@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-int main()
-{
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+#include <iostream>
+#include <string>
 
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-j->makeSound();
-meta->makeSound();
+class   WrongAnimal {
 
-return 0;
+    private :
 
-}
+    protected :
+        std::string _type;
+
+    public :
+        /* Constructor */
+        WrongAnimal();
+        WrongAnimal(std::string type);
+        /* Copy constructor */
+        WrongAnimal(WrongAnimal const &copy);
+        /* Destructor */
+        ~WrongAnimal();
+        /* Surcharged operator */
+        WrongAnimal &operator=(WrongAnimal const &rhs);
+        /* Getter */
+        std::string getType(void) const;
+        /* Setter */
+        void    setType(std::string type);
+        /* Member functions */
+        void    makeSound(void) const;
+
+};
+
+#endif

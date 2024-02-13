@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
+
 #include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
-int main()
-{
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+class WrongCat : public WrongAnimal{
 
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-j->makeSound();
-meta->makeSound();
+    private:
 
-return 0;
+    public:
+        /* Constructor */
+        WrongCat();
+        /* Copy constructor */
+        WrongCat(WrongCat const &copy);
+        /* Destructor */
+        ~WrongCat();
+        /* Surcharged operator */
+        WrongCat &operator=(WrongCat const &rhs);
+        /* Member functions */
+        void    makeSound(void) const;
 
-}
+};
+
+#endif 
