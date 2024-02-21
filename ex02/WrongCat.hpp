@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include <iostream>
-#include <string>
+#include "WrongAnimal.hpp"
 
-class   WrongAnimal {
+class WrongCat : public WrongAnimal{
 
-    private :
+    private:
 
-    protected :
-        std::string _type;
-
-    public :
+    public:
         /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
+        WrongCat();
         /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
+        WrongCat(WrongCat const &copy);
         /* Destructor */
-        virtual ~WrongAnimal();
+        ~WrongCat();
         /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
+        WrongCat &operator=(WrongCat const &rhs);
         /* Member functions */
         void    makeSound(void) const;
 
 };
 
-#endif
+#endif 

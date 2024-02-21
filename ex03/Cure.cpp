@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Cure.hpp"
 
-#include <iostream>
-#include <string>
+Cure::Cure() : AMateria("Cure"){
 
-class   WrongAnimal {
+}
 
-    private :
+Cure::Cure(Cure const &copy) : AMateria("Cure"){
+    *this = copy;
+}
 
-    protected :
-        std::string _type;
+Cure::~Cure(){
 
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
+}
 
-};
+Cure &Cure::operator=(Cure const &rhs){
+    AMateria::operator=(rhs);
+}
 
-#endif
+Cure &Cure::clone(void) const{
+    const AMaterial *clone = new Cure();
+    return (clone);
+}
+
+void Cure::use(ICharacter& target){
+    std::cout << "* heals " << target << "'s wounds *" << std::endl;
+}

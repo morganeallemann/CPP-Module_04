@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Ice.hpp"
 
-#include <iostream>
-#include <string>
+Ice::Ice() : AMateria("ice"){
 
-class   WrongAnimal {
+}
 
-    private :
+Ice::Ice(Ice const &copy) : AMateria("ice"){
+    *this = copy;
+}
 
-    protected :
-        std::string _type;
+Ice::~Ice(){
 
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
+}
 
-};
+Ice &Ice::operator=(Ice const &rhs){
+    AMateria::operator=(rhs);
+}
 
-#endif
+Ice &Ice::clone(void) const{
+    const AMaterial *clone = new Ice();
+    return (clone);
+}
+
+void Ice::use(ICharacter& target){
+    std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+}

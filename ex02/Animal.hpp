@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-class   WrongAnimal {
+class   Animal {
 
     private :
 
@@ -25,20 +25,20 @@ class   WrongAnimal {
 
     public :
         /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
+        Animal();
+        Animal(std::string type);
         /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
+        Animal(Animal const &copy);
         /* Destructor */
-        virtual ~WrongAnimal();
+        virtual ~Animal();
         /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
+        Animal &operator=(Animal const &rhs);
         /* Getter */
         std::string getType(void) const;
         /* Setter */
         void    setType(std::string type);
         /* Member functions */
-        void    makeSound(void) const;
+        virtual void    makeSound(void) const = 0;
 
 };
 

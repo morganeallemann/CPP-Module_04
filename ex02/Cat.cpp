@@ -20,8 +20,8 @@ Cat::Cat() : Animal("New cat"){
 }
 
 Cat::Cat(Cat const &copy) : Animal("New cat"){
-    *this = copy;
     std::cout << "Cat copy constructor was called, a new Cat was created ! " << std::endl;
+    this->_brain = new Brain(*copy._brain);
 }
 
 Cat &Cat::operator=(Cat const &rhs){

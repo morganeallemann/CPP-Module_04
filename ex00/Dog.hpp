@@ -25,7 +25,7 @@ class Dog : public Animal{
         /* Copy constructor */
         Dog(Dog const &copy);
         /* Destructor */
-        ~Dog();
+        virtual ~Dog();
         /* Surcharged operator */
         Dog &operator=(Dog const &rhs);
         /* Member functions */

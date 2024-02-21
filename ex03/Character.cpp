@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Character.hpp"
 
-#include <iostream>
-#include <string>
-
-class   WrongAnimal {
-
-    private :
-
-    protected :
-        std::string _type;
-
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
-
-};
-
-#endif
+Character::Character(std::string name) : ICharacter(), _name(name){
+    
+}

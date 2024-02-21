@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include <iostream>
-#include <string>
+#include "AMateria.hpp"
 
-class   WrongAnimal {
+class Ice : public AMateria {
 
-    private :
+    private:
 
-    protected :
-        std::string _type;
-
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
-
+    public:
+        /* CONSTRUCTOR */
+        Ice();
+        /* COPY CONSTRUCTOR */
+        Ice(Ice const &copy);
+        /* DESTRUCTOR */
+        virtual ~Ice();
+        /* SURCHARGED OPERATOR */
+        Ice &operator=(Ice const &rhs);
+        /* MEMBER FUNCTIONS */
+        virtual Ice* clone(void) const;
+        virtual void use(ICharacter& target);
 };
 
-#endif
+#endif 

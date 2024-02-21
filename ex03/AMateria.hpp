@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-#include <iostream>
 #include <string>
+#include <iostream>
+#include "ICharacter.hpp"
 
-class   WrongAnimal {
+class AMateria{
 
-    private :
-
-    protected :
+    protected:
         std::string _type;
 
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
+    public:
+        /* CONSTRUCTOR */
+        AMateria(std::string const & type);
+        /* COPY CONSTRUCTOR */
+        AMateria(AMateria const &copy);
+        /* DESTRUCTOR */
+        virtual ~AMateria();
+        /* SURCHARGED OPERATOR */
+        AMateria &operator=(AMateria const &rhs);
+        /* MEMBERS FUNCTIONS */
+        std::string const & getType() const; //Returns the materia type
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
 
 };
 

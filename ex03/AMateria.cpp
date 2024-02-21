@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "AMateria.hpp"
 
-#include <iostream>
-#include <string>
+AMateria::AMateria(std::string const & type) : _type(type){
 
-class   WrongAnimal {
+}
 
-    private :
+AMateria::AMateria(AMateria const &copy){
+    *this = copy;
+}
 
-    protected :
-        std::string _type;
+AMateria::~AMateria(){
 
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
+}
 
-};
+AMateria &AMateria::operator=(AMateria const &rhs){
+    this->_type = rhs._type;
+    return (*this);
+}
 
-#endif
+std::string const &AMateria::getType(void) const{
+    return (this->_type);
+}
+
+void    AMateria::use(ICharacter& target){
+
+}

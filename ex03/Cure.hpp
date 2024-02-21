@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-#include <iostream>
-#include <string>
+#include "AMateria.hpp"
 
-class   WrongAnimal {
+class Cure : public AMateria {
 
-    private :
+    private:
 
-    protected :
-        std::string _type;
-
-    public :
-        /* Constructor */
-        WrongAnimal();
-        WrongAnimal(std::string type);
-        /* Copy constructor */
-        WrongAnimal(WrongAnimal const &copy);
-        /* Destructor */
-        virtual ~WrongAnimal();
-        /* Surcharged operator */
-        WrongAnimal &operator=(WrongAnimal const &rhs);
-        /* Getter */
-        std::string getType(void) const;
-        /* Setter */
-        void    setType(std::string type);
-        /* Member functions */
-        void    makeSound(void) const;
-
+    public:
+    /* CONSTRUCTOR */
+    Cure();
+    /* COPY CONSTRUCTOR */
+    Cure(Cure const &copy);
+    /* DESTRUCTOR */
+    virtual ~Cure();
+    /* SURCHARGED OPERATOR */
+    Ice &operator=(Cure const &rhs);
+    /* MEMBER FUNCTIONS */
+    virtual Cure* clone(void) const;
+    virtual void use(ICharacter& target);
 };
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cat.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class Cat : public Animal{
-
+class Character : public ICharacter{
+    
     private:
-        Brain *_brain;
+        AMateria    *_materia[3];
+        std::string _name;
 
     public:
-        /* Constructor */
-        Cat();
-        /* Copy constructor */
-        Cat(Cat const &copy);
-        /* Destructor */
-        virtual ~Cat();
-        /* Surcharged operator */
-        Cat &operator=(Cat const &rhs);
-        /* Member functions */
-        void    makeSound(void) const;
-        /* Getter */
-        Brain* getBrain(void) const;
-        
+        /* CONSTRUCTOR */
+        Character(std::string name);
+        /* COPY CONSTRUCTOR */
+        Character(Character const &copy);
+        /* DESTRUCTOR */
+        virtual ~Character()
+        /* SURCHARGED OPERATOR */
+        Character &operator=(Character const &rhs);
+        /* MEMBER FUNCTIONS */
+        virtual std::string const & getName() const = 0;
+        virtual void equip(AMateria* m) = 0;
+        virtual void unequip(int idx) = 0;
+        virtual void use(int idx, ICharacter& target) = 0;
+
 };
 
-#endif 
+#endif

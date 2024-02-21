@@ -30,7 +30,7 @@ class   Animal {
         /* Copy constructor */
         Animal(Animal const &copy);
         /* Destructor */
-        ~Animal();
+        virtual ~Animal();
         /* Surcharged operator */
         Animal &operator=(Animal const &rhs);
         /* Getter */

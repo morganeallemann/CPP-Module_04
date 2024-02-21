@@ -25,7 +25,7 @@ class WrongCat : public WrongAnimal{
         /* Copy constructor */
         WrongCat(WrongCat const &copy);
         /* Destructor */
-        ~WrongCat();
+        virtual ~WrongCat();
         /* Surcharged operator */
         WrongCat &operator=(WrongCat const &rhs);
         /* Member functions */

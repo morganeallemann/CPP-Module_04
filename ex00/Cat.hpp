@@ -25,7 +25,7 @@ class Cat : public Animal{
         /* Copy constructor */
         Cat(Cat const &copy);
         /* Destructor */
-        ~Cat();
+        virtual ~Cat();
         /* Surcharged operator */
         Cat &operator=(Cat const &rhs);
         /* Member functions */
