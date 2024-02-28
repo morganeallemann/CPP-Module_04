@@ -17,11 +17,12 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria{
-
     protected:
-        std::string _type;
-
+        std::string   _type;
+    
     public:
         /* CONSTRUCTOR */
         AMateria(std::string const & type);
@@ -31,11 +32,10 @@ class AMateria{
         virtual ~AMateria();
         /* SURCHARGED OPERATOR */
         AMateria &operator=(AMateria const &rhs);
-        /* MEMBERS FUNCTIONS */
-        std::string const & getType() const; //Returns the materia type
-        virtual AMateria* clone() const = 0;
+        /* MEMBER FUNCTIONS */
+        std::string const & getType(void) const; //Returns the materia type
+        virtual AMateria* clone(void) const = 0;
         virtual void use(ICharacter& target);
-
 };
 
-#endif
+#endif 

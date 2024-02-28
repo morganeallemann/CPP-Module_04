@@ -14,13 +14,13 @@
 # define CHARACTER_HPP
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
+#include <iostream>
+#include <string>
 
 class Character : public ICharacter{
-    
     private:
-        AMateria    *_materia[3];
         std::string _name;
+        AMateria *_materia[4];
 
     public:
         /* CONSTRUCTOR */
@@ -28,15 +28,14 @@ class Character : public ICharacter{
         /* COPY CONSTRUCTOR */
         Character(Character const &copy);
         /* DESTRUCTOR */
-        virtual ~Character()
+        ~Character();
         /* SURCHARGED OPERATOR */
         Character &operator=(Character const &rhs);
         /* MEMBER FUNCTIONS */
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0;
-
+        virtual std::string const & getName() const;
+        virtual void equip(AMateria* m);
+        virtual void unequip(int idx);
+        virtual void use(int idx, ICharacter& target);
 };
 
 #endif

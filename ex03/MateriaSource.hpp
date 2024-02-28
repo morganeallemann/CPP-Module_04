@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,4 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+
+#include "IMateriaSource.hpp"
+
+class   MateriaSource : public IMateriaSource{
+    private:
+        AMateria *_materia[4];
+
+    public:
+        /* CONSTRUCTOR */
+        MateriaSource();
+        /* COPY CONSTRUCTOR */
+        MateriaSource(MateriaSource const &copy);
+        /* DESTRUCTOR */
+        ~MateriaSource();
+        /* SURCHARGED OPERATOR */
+        MateriaSource &operator=(MateriaSource const &rhs);
+        /* MEMBER FUNCTIONS */
+        virtual void learnMateria(AMateria*);
+        virtual AMateria* createMateria(std::string const & type);
+};
+
+#endif 

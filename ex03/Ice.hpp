@@ -15,8 +15,7 @@
 
 #include "AMateria.hpp"
 
-class Ice : public AMateria {
-
+class Ice : public AMateria{
     private:
 
     public:
@@ -25,12 +24,13 @@ class Ice : public AMateria {
         /* COPY CONSTRUCTOR */
         Ice(Ice const &copy);
         /* DESTRUCTOR */
-        virtual ~Ice();
+        ~Ice();
         /* SURCHARGED OPERATOR */
         Ice &operator=(Ice const &rhs);
         /* MEMBER FUNCTIONS */
-        virtual Ice* clone(void) const;
+        virtual AMateria* clone(void) const;
         virtual void use(ICharacter& target);
+
 };
 
 #endif 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malleman <malleman@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,22 +15,22 @@
 
 #include "AMateria.hpp"
 
-class Cure : public AMateria {
-
+class Cure : public AMateria{
     private:
 
     public:
-    /* CONSTRUCTOR */
-    Cure();
-    /* COPY CONSTRUCTOR */
-    Cure(Cure const &copy);
-    /* DESTRUCTOR */
-    virtual ~Cure();
-    /* SURCHARGED OPERATOR */
-    Ice &operator=(Cure const &rhs);
-    /* MEMBER FUNCTIONS */
-    virtual Cure* clone(void) const;
-    virtual void use(ICharacter& target);
+        /* CONSTRUCTOR */
+        Cure();
+        /* COPY CONSTRUCTOR */
+        Cure(Cure const &copy);
+        /* DESTRUCTOR */
+        ~Cure();
+        /* SURCHARGED OPERATOR */
+        Cure &operator=(Cure const &rhs);
+        /* MEMBER FUNCTIONS */
+        virtual AMateria* clone(void) const;
+        virtual void use(ICharacter& target);
+
 };
 
-#endif
+#endif 

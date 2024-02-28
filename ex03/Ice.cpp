@@ -13,26 +13,27 @@
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice"){
-
+    std::cout << "A new ice was created " << std::endl;
 }
 
 Ice::Ice(Ice const &copy) : AMateria("ice"){
+    std::cout << "A new ice was created by copie " << std::endl;
     *this = copy;
 }
 
 Ice::~Ice(){
-
+    std::cout << "An ice was destroyed !" << std::endl;
 }
 
 Ice &Ice::operator=(Ice const &rhs){
-    AMateria::operator=(rhs);
+    (void) rhs;
+    return (*this);
 }
 
-Ice &Ice::clone(void) const{
-    const AMaterial *clone = new Ice();
-    return (clone);
+AMateria *Ice::clone(void) const {
+    return (new Ice(*this));
 }
 
-void Ice::use(ICharacter& target){
-    std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+void    Ice::use(ICharacter &target){
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
