@@ -22,7 +22,8 @@ Character::Character(Character const &copy){
     this->_name = copy._name;
     std::cout << "A new Character named " << this->_name << " was created by copie " << std::endl;
     for (int i = 0; i < 4; i++){
-        this->_materia[i] = copy._materia[i]->clone();
+        if (copy._materia[i])
+            this->_materia[i] = copy._materia[i]->clone();
     }
 }
 Character::~Character(){
@@ -37,7 +38,8 @@ Character   &Character::operator=(Character const &rhs){
     for (int i = 0; i < 4; i++){
         if (this->_materia[i])
             delete this->_materia[i];
-        this->_materia[i] = rhs._materia[i]->clone();
+        if (rhs._materia[i])
+            this->_materia[i] = rhs._materia[i]->clone();
     }
     return (*this);
 }
@@ -66,10 +68,12 @@ void    Character::equip(AMateria *m){
 void    Character::unequip(int idx){
     if (idx > 3 || idx < 0)
         std::cout << "Index is not available " << std::endl;
-    else if (this->_materia[idx] == NULL)
+    else if (!this->_materia[idx])
         std::cout << "This index is already empty " << std::endl;
-    else
-        this->_materia[idx] = 0;
+    else{
+        std::cout << "Materia " << this->_materia[idx]->getType() << " was unequipped at idx " << idx << std::endl;
+        this->_materia[idx] = NULL;
+    }
     return ;
 }
 
@@ -80,4 +84,9 @@ void    Character::use(int idx, ICharacter &target){
         std::cout << "This index is empty " << std::endl;
     else
         this->_materia[idx]->use(target);
+}
+
+AMateria	*Character::getMateriaFromInventory(int idx)
+{
+	return (this->_materia)[idx];
 }

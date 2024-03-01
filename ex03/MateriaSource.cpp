@@ -21,7 +21,8 @@ MateriaSource::MateriaSource(){
 MateriaSource::MateriaSource(MateriaSource const &copy){
     std::cout << "Materiasource was created by copie " << std::endl;
     for (int i = 0; i < 4; i++){
-        this->_materia[i] = copy._materia[i]->clone();
+        if (copy._materia[i])
+            this->_materia[i] = copy._materia[i]->clone();
     }
 }
 
@@ -37,7 +38,8 @@ MateriaSource   &MateriaSource::operator=(MateriaSource const &rhs){
     for (int i = 0; i < 4; i++){
         if (this->_materia[i])
             delete this->_materia[i];
-        this->_materia[i] = rhs._materia[i]->clone();
+        if (rhs._materia[i])
+            this->_materia[i] = rhs._materia[i]->clone();
     }
     return (*this);
 }

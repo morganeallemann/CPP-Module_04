@@ -28,7 +28,7 @@ class Character : public ICharacter{
         /* COPY CONSTRUCTOR */
         Character(Character const &copy);
         /* DESTRUCTOR */
-        ~Character();
+        virtual ~Character();
         /* SURCHARGED OPERATOR */
         Character &operator=(Character const &rhs);
         /* MEMBER FUNCTIONS */
@@ -36,6 +36,7 @@ class Character : public ICharacter{
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
+        AMateria	*getMateriaFromInventory(int idx);
 };
 
 #endif

@@ -24,7 +24,7 @@ class Cure : public AMateria{
         /* COPY CONSTRUCTOR */
         Cure(Cure const &copy);
         /* DESTRUCTOR */
-        ~Cure();
+        virtual ~Cure();
         /* SURCHARGED OPERATOR */
         Cure &operator=(Cure const &rhs);
         /* MEMBER FUNCTIONS */

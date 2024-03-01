@@ -21,7 +21,7 @@ AMateria::AMateria(AMateria const &copy) : _type(copy.getType()){
 }
 
 AMateria::~AMateria(){
-    std::cout << "Amateria type " << this->_type << " was created " << std::endl;
+    std::cout << "Amateria type " << this->_type << " was destroyed " << std::endl;
 }
 
 AMateria    &AMateria::operator=(AMateria const &rhs){
@@ -38,3 +38,4 @@ void    AMateria::use(ICharacter &target){
     std::cout << "\033[38;5;196m This function doesn't display anything \033[0m" << std::endl;
     return ;
 }
+

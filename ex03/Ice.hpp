@@ -24,7 +24,7 @@ class Ice : public AMateria{
         /* COPY CONSTRUCTOR */
         Ice(Ice const &copy);
         /* DESTRUCTOR */
-        ~Ice();
+        virtual ~Ice();
         /* SURCHARGED OPERATOR */
         Ice &operator=(Ice const &rhs);
         /* MEMBER FUNCTIONS */

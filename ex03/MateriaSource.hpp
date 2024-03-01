@@ -25,7 +25,7 @@ class   MateriaSource : public IMateriaSource{
         /* COPY CONSTRUCTOR */
         MateriaSource(MateriaSource const &copy);
         /* DESTRUCTOR */
-        ~MateriaSource();
+        virtual ~MateriaSource();
         /* SURCHARGED OPERATOR */
         MateriaSource &operator=(MateriaSource const &rhs);
         /* MEMBER FUNCTIONS */

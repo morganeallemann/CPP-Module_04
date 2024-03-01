@@ -36,6 +36,7 @@ class AMateria{
         std::string const & getType(void) const; //Returns the materia type
         virtual AMateria* clone(void) const = 0;
         virtual void use(ICharacter& target);
+
 };
 
 #endif 
