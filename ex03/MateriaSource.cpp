@@ -23,6 +23,8 @@ MateriaSource::MateriaSource(MateriaSource const &copy){
     for (int i = 0; i < 4; i++){
         if (copy._materia[i])
             this->_materia[i] = copy._materia[i]->clone();
+        else
+            this->_materia[i] = NULL;
     }
 }
 

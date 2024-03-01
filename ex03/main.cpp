@@ -21,13 +21,17 @@
 void ft_tests()
 {
 	// Constructors
+    AMateria *ptr; 
+    AMateria *ptr2;
+
+    ptr = new Ice();
+    ptr2 = new Cure();
 	std::cout << std::endl;
 	std::cout << "CONSTRUCTORS:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
 	MateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-
-	src->learnMateria(new Cure());
+	src->learnMateria(ptr);
+	src->learnMateria(ptr2);
 	ICharacter* me = new Character("me");
 	std::cout << std::endl;
 
@@ -121,6 +125,8 @@ void ft_tests()
 	delete charles_copy;
 	delete tmp1;
 	delete tmp2;
+    delete ptr;
+    delete ptr2;
 	std::cout << std::endl;
 	//system("leaks Materia");
 }

@@ -24,6 +24,8 @@ Character::Character(Character const &copy){
     for (int i = 0; i < 4; i++){
         if (copy._materia[i])
             this->_materia[i] = copy._materia[i]->clone();
+        else
+            this->_materia[i] = NULL;
     }
 }
 Character::~Character(){
@@ -54,7 +56,7 @@ void    Character::equip(AMateria *m){
         std::cout << "No materia insert, please insert one " << std::endl;
         return ;
     }
-    while (this->_materia[i] != NULL && i < 4)
+    while (i < 4 && this->_materia[i] != NULL)
         i++;
     if (i >= 4)
         std::cout << "Materia list is full, you cannot add more materia " << std::endl;
